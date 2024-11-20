@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<head>
+        <meta charset="utf-8" />
+        <title>Box Content Explorer Demo</title>
+
+        <!-- Latest version of the explorer css for your locale -->
+        <link
+            rel="stylesheet"
+            href="https://cdn01.boxcdn.net/platform/elements/21.0.0/en-US/explorer.css" />
+        <!-- Latest version of the sidebar css for your locale -->
+    <link
+    rel="stylesheet"
+    href="https://cdn01.boxcdn.net/platform/elements/21.0.0/en-US/sidebar.css"
+  />
+
+  <script src="https://cdn01.boxcdn.net/platform/preview/2.106.0/en-US/preview.js"></script>
+  <link href="https://cdn01.boxcdn.net/platform/preview/2.106.0/en-US/preview.css" rel="stylesheet" type="text/css"></link>
+
+  <script src="/js/annotations.js"></script>
+    <link rel="stylesheet" href="/js/annotations.css" />
+</head>
+<body>
+    <div class="container" style="height:600px"></div>
+    <h1>Preview Below</h1>
+    <div class="preview-container" style="height:600px"></div>
+        <!-- Latest version of the explorer js for your locale -->
+        <script src="https://cdn01.boxcdn.net/platform/elements/21.0.0/en-US/explorer.js"></script>
+        <script src="https://cdn01.boxcdn.net/platform/elements/21.0.0/en-US/sidebar.js"></script>
+        <script src="https://cdn01.boxcdn.net/platform/elements/21.0.0/en-US/preview.js"></script>
+        <script>
+            var options = {
+                container: ".container",
+                hasHeader: true, 
+                contentPreviewProps: {
+                    enableAnnotationsDiscoverability: true,
+                    enableAnnotationsImageDiscoverability: true,
+                    
+                    // boxAnnotations: annotations
+                }
+            }
+            var folderId = "142721140549";
+            var fileId = '1529349433762';
+            var accessToken = "Al5Ka6IPn3a9dZ52F9uoK8WVxBuJ5VNG";
+            var contentExplorer = new Box.ContentExplorer();
+            var annotations = new BoxAnnotations();
+            
+            contentExplorer.show(folderId, accessToken, {
+                container: ".container",
+ 
+    contentPreviewProps: {
+        enableAnnotationsDiscoverability: true,
+        enableAnnotationsImageDiscoverability: true,
+        showAnnotations: true,
+        showAnnotationsControls: true,
+        showAnnotationsDrawingCreate: true,
+        boxAnnotations: annotations,
+        contentSidebarProps: {
+            detailsSidebarProps: {
+                hasNotices: true,
+                hasProperties: true,
+                hasAccessStats: true,
+                hasVersions: true
+            },
+            hasActivityFeed: true,
+            hasSkills: true,
+            hasMetadata: true,
+            hasVersions: true
+        }
+    }
+}
+            );
+        
+            var preview = new Box.ContentPreview()
+            preview.show(fileId, accessToken, {
+                container: '.preview-container',
+                hasHeader: true,
+                enableAnnotationsDiscoverability: true,
+                enableAnnotationsImageDiscoverability: true,
+                showAnnotations: true,
+                showAnnotationsControls: true,
+                showAnnotationsDrawingCreate: true,
+                boxAnnotations: annotations,
+                contentSidebarProps: {
+                    detailsSidebarProps: {
+                        hasNotices: true,
+                        hasProperties: true,
+                        hasAccessStats: true,
+                        hasVersions: true
+                },
+                hasActivityFeed: true,
+                hasSkills: true,
+                hasMetadata: true,
+                hasVersions: true,
+                
+        }
+    })
+        </script>
+
+        
+</body>
